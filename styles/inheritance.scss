@@ -1,0 +1,11 @@
+@import "./variable.scss";
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 42px;
+  gap: 10px;
+  cursor: pointer;
+}
