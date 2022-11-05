@@ -1,4 +1,4 @@
-@import "./variable.scss";
+@import './variable.scss';
 
 .button {
   display: flex;
@@ -8,4 +8,26 @@
   padding: 8px 42px;
   gap: 10px;
   cursor: pointer;
+  color: $contrast-color;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-regular;
+}
+
+.align-start {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.justify-align-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
