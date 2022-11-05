@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script type='module' src="/js/url-router.js"></script>
   </head>
-  <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/signInUp">sign In Up</a>
-    </nav>
-    <div id="content"></div>
-    <script src="/js/url-router.js"></script>
+  <body id='content'>
+      <div class="sign-in-up__main">
+        <div class="sign-in-up__container">
+          <h2 class="sign-in-up__text">Username</h2>
+          <input class="sign-in-up__input" type="text" value="" />
+          <button class="add-button sign-in-up__btn">
+            <a href="/addToDo">Continue</a>
+          </button>
+        </div>
+      </div>
   </body>
 </html>

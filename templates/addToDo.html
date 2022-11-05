@@ -1,0 +1,33 @@
+<div class="add-todo__main">
+  <div class="add-todo__container">
+    <h2 class="add-todo__title">To Do</h2>
+    <div class="add-todo__Inner">
+      <!-- Show Todos -->
+      <div class="add-todo__task-list"></div>
+      <!-- Todo Button -->
+      <button id="add-todo__btn" class="add-button add-todo__btn">
+        Add New Task
+      </button>
+    </div>
+  </div>
+  <!-- The Modal -->
+  <div id="add-todo__modal" class="add-todo__modal">
+    <!-- Modal content -->
+    <div class="add-todo__modal-content">
+      <form class='add-todo__model-form'>
+        <div class='add-todo__model--text'>
+          <label class="add-todo__model-label" for="">Title</label>
+          <input class="add-todo__model-input" type="text" value="" />
+        </div>
+        <div class='add-todo__model--date'>
+          <label class="add-todo__model-label" for="">Date</label>
+          <input class="add-todo__model-input date" placeholder="dd/mm/yyyy" type="text" value="" />
+        </div>
+        <div class='add-todo__model--button-group'>
+        <button class='add-todo__model-cancel'>Cancel</button>
+        <button class='add-todo__model-save'>Save</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
