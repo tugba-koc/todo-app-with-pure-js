@@ -8,9 +8,13 @@
   padding: 8px 42px;
   gap: 10px;
   cursor: pointer;
+  border: none;
   color: $contrast-color;
   font-weight: $font-weight-bold;
   font-size: $font-size-regular;
+  box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25),
+    inset -4px -4px 16px rgba(39, 39, 39, 0.1),
+    inset 4px 4px 16px rgba(39, 39, 39, 0.07);
 }
 
 .align-start {
