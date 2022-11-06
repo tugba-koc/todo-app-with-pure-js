@@ -1,4 +1,4 @@
-const edittodo = (dateValList) => {
+const edittodo = () => {
   let todoItems = document.getElementsByClassName('todo__single');
   Array.from(todoItems).forEach((todo) => {
     todo.addEventListener(
@@ -32,11 +32,10 @@ const edittodo = (dateValList) => {
             parentItem.remove();
           }, 300);
 
-          console.log('test', grandParentItem);
+          console.log('test', grandParentItem.childNodes);
           if (grandParentItem.childNodes.length == 2) {
             grandParentItem.remove();
           }
-          dateValList = dateValList.filter((el) => el !== grandParentItem.id);
         } else if (e.target.closest('.todo--remove')) {
           // if the user select remove-icon
           e.target.parentNode.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

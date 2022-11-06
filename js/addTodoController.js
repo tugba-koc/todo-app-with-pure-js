@@ -11,7 +11,6 @@ const addtodo = () => {
 
   // Create state value for todos
   let todos = [];
-  let dateValList = [];
 
   // When the user clicks the button, open the modal
   btn.addEventListener('click', function () {
@@ -69,8 +68,19 @@ const addtodo = () => {
         },
       ];
       let todoListBlock = '';
+      let todolistBlockAll =
+        document.getElementsByClassName('todo-list--block');
+      let blockIdList = Array.from(todolistBlockAll).map((el) => {
+        return el.id;
+      });
+      let isValidBlock = blockIdList.includes(
+        'todo-' + Date.parse(dateObject)
+      );
+      console.log([todolistBlockAll]);
+      console.log('----------');
+      console.log(Date.parse(dateObject));
       // Create Todo List Block if needed
-      if (!dateValList.includes(Date.parse(dateObject))) {
+      if (todolistBlockAll.length === 0 || !isValidBlock) {
         todoListBlock = document.createElement('div');
         todoListBlock.classList.add('todo-list--block');
         todoListBlock.setAttribute('id', 'todo-' + Date.parse(dateObject));
@@ -82,7 +92,6 @@ const addtodo = () => {
          ${dateVal}`;
         todoListBlock.append(titleTodolistBlock);
         todoList.append(todoListBlock);
-        dateValList.push(Date.parse(dateObject));
       } else {
         todoListBlock = document.querySelector(
           `#todo-${Date.parse(dateObject)}`
@@ -108,8 +117,7 @@ const addtodo = () => {
       removeInputValues();
     }
     if (todos.length > 0) {
-      edittodo(dateValList);
-      console.log(dateValList);
+      edittodo();
     }
   });
 };

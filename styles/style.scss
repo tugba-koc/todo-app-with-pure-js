@@ -24,8 +24,6 @@ a {
   background: $light-grey-color;
 }
 
-// Index Page
-
 // Sign In Up Page
 .sign-in-up__main {
   @extend .justify-align-center;
@@ -60,6 +58,7 @@ a {
 }
 
 // Add To Do page
+
 .add-todo__main {
   height: 100vh;
 }
