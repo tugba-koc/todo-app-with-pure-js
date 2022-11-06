@@ -13,6 +13,7 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 8px 42px;
+  height: 44px;
   gap: 10px;
   cursor: pointer;
   border: none;

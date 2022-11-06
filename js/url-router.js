@@ -1,4 +1,5 @@
 import addtodo from './addTodoController.js';
+// import edittodo from './editTodoController.js';
 import signInUp from './signInUpController.js';
 
 export default function deneme() {
@@ -56,12 +57,12 @@ export default function deneme() {
     // set the description of the document to the description of the route
     document.querySelector('meta[name="description"]');
     if (route.template.includes('addToDo')) {
-      document.getElementById('content').classList.add('addtodo')
-      document.getElementById('content').classList.remove('signinup')
+      document.getElementById('content').classList.add('addtodo');
+      document.getElementById('content').classList.remove('signinup');
       addtodo();
     } else {
-      document.getElementById('content').classList.add('signinup')
-      document.getElementById('content').classList.remove('addtodo')
+      document.getElementById('content').classList.add('signinup');
+      document.getElementById('content').classList.remove('addtodo');
       signInUp();
     }
   };
