@@ -136,11 +136,12 @@ a {
 
 .add-todo__title {
   margin: 0;
+  font-size: 36px;
+  color: #000;
 }
 
 .add-todo__modal {
   display: none;
-  padding: 40px 40px 40px 48px;
   position: fixed;
   z-index: 1;
   padding-top: 15vw;
@@ -149,16 +150,16 @@ a {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(126, 122, 122, 0.5);
   /* Black w/ opacity */
 }
 
 /* Modal Content */
 .add-todo__modal-content {
-  background-color: #fefefe;
+  background-color: #f8f8f8;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: none;
   width: 52.25vw;
 }
 
@@ -185,22 +186,26 @@ a {
   padding-left: 10px;
 }
 
-.add-todo__model-input.date::-webkit-input-placeholder, .add-todo__model-input.date {
+.add-todo__model-input.date::-webkit-input-placeholder,
+.add-todo__model-input.date {
   font-size: 24px;
   color: #272727;
 }
 
-.add-todo__model-input.date:-ms-input-placeholder, .add-todo__model-input.date {
+.add-todo__model-input.date:-ms-input-placeholder,
+.add-todo__model-input.date {
   font-size: 24px;
   color: #272727;
 }
 
-.add-todo__model-input.date::-ms-input-placeholder, .add-todo__model-input.date {
+.add-todo__model-input.date::-ms-input-placeholder,
+.add-todo__model-input.date {
   font-size: 24px;
   color: #272727;
 }
 
-.add-todo__model-input.date::placeholder, .add-todo__model-input.date {
+.add-todo__model-input.date::placeholder,
+.add-todo__model-input.date {
   font-size: 24px;
   color: #272727;
 }
@@ -294,6 +299,11 @@ a {
           align-items: center;
   font-size: 24px;
   color: #272727;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .todo-item__single.todo--title {
@@ -305,10 +315,29 @@ a {
 }
 
 svg {
-  width: 44px;
+  margin-right: 10px;
 }
 
 .completed-todo {
   color: #7e7a7a;
+}
+
+.todo--edit-input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #000;
+  font-size: 24px;
+  color: #272727;
+}
+
+img {
+  width: 20px;
+  height: 24px;
+  padding: 14px;
+}
+
+.edited-todo {
+  -webkit-box-shadow: inset -4px -4px 16px rgba(39, 39, 39, 0.15), inset 4px 4px 16px rgba(39, 39, 39, 0.15);
+          box-shadow: inset -4px -4px 16px rgba(39, 39, 39, 0.15), inset 4px 4px 16px rgba(39, 39, 39, 0.15);
 }
 /*# sourceMappingURL=style.css.map */

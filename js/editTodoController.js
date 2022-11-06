@@ -1,55 +1,55 @@
 const edittodo = () => {
   let todoItems = document.getElementsByClassName('todo__single');
   Array.from(todoItems).forEach((todo) => {
-    todo.addEventListener(
-      'click',
-      function (e) {
-        if (e.target.classList.contains('todo--complete')) {
-          e.target.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        // <path d="M1 9.50227L8.34394 21L21 1" stroke="#7E7A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        // </svg>`;
-          e.target.nextElementSibling.classList.add('completed-todo');
-        } else if (e.target.classList.contains('todo--edit')) {
-          e.target.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 10.5023L9.34394 22L22 2" stroke="#272727" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        `;
-        } else if (e.target.closest('.todo--edit')) {
-          // if the user select edit-icon
-          e.target.parentNode.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 10.5023L9.34394 22L22 2" stroke="#272727" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    todo.addEventListener('click', function (e) {
+      // COMPLETE -----------------------------------
+      if (e.target.classList.contains('todo--complete')) {
+        e.target.innerHTML = `<img src='../assets/done.png' alt='done-icon' />`;
+        e.target.nextElementSibling.classList.add('completed-todo');
+      }
+      // EDIT -----------------------------------
+      else if (e.target.closest('.todo--edit')) {
+        let todoId = e.currentTarget.id;
+        let parentItem = e.target.parentNode;
+        parentItem.innerHTML = `<img id='done-icon-${todoId}' src='../assets/bold.png' alt='done-icon' />
           `;
-        } else if (e.target.classList.contains('todo--remove')) {
-          e.target.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.0001 8.26688e-09C13.0771 -6.44109e-05 14.1132 0.37636 14.8961 1.05206C15.6789 1.72775 16.149 2.65149 16.2099 3.63378L16.2164 3.85185H23.0273C23.2738 3.85192 23.5111 3.93747 23.6913 4.09123C23.8714 4.24498 23.9809 4.45546 23.9977 4.68015C24.0145 4.90484 23.9374 5.12698 23.7818 5.30169C23.6262 5.47639 23.4039 5.59064 23.1596 5.62133L23.0273 5.62963H21.9947L20.3341 21.0607C20.2509 21.8301 19.8711 22.5473 19.2625 23.0844C18.6539 23.6215 17.8561 23.9435 17.0117 23.9929L16.7833 24H7.21695C6.37041 24 5.55145 23.7249 4.90645 23.2241C4.26144 22.7232 3.83242 22.0291 3.69605 21.2658L3.66621 21.0596L2.00435 5.62963H0.972985C0.737863 5.62962 0.510698 5.55183 0.333499 5.41065C0.156301 5.26946 0.0410577 5.07443 0.00908115 4.86163L0 4.74074C9.91523e-06 4.52594 0.0851591 4.31841 0.239701 4.15653C0.394242 3.99464 0.607722 3.88936 0.840659 3.86015L0.972985 3.85185H7.78388C7.78388 2.83028 8.22809 1.85054 9.0188 1.12818C9.8095 0.405819 10.8819 8.26689e-09 12.0001 8.26688e-09ZM20.0396 5.62963H3.9594L5.6031 20.8853C5.63949 21.2257 5.80369 21.5441 6.06782 21.7865C6.33196 22.0289 6.67976 22.1803 7.0522 22.2151L7.21695 22.2222H16.7833C17.5617 22.2222 18.2221 21.7185 18.3726 21.0347L18.3985 20.8853L20.0383 5.62963H20.0396ZM14.2704 8.88889C14.5056 8.8889 14.7327 8.96669 14.9099 9.10787C15.0871 9.24906 15.2024 9.44408 15.2344 9.65689L15.2434 9.77778V18.0741C15.2434 18.2993 15.1497 18.5161 14.9814 18.6806C14.8131 18.8452 14.5827 18.9453 14.3368 18.9606C14.0908 18.976 13.8477 18.9055 13.6564 18.7633C13.4652 18.6212 13.3401 18.4181 13.3065 18.195L13.2975 18.0741V9.77778C13.2975 9.54203 13.4 9.31594 13.5824 9.14924C13.7649 8.98254 14.0124 8.88889 14.2704 8.88889ZM9.72985 8.88889C9.96497 8.8889 10.1921 8.96669 10.3693 9.10787C10.5465 9.24906 10.6618 9.44408 10.6938 9.65689L10.7028 9.77778V18.0741C10.7028 18.2993 10.6091 18.5161 10.4408 18.6806C10.2725 18.8452 10.0421 18.9453 9.79617 18.9606C9.55022 18.976 9.30707 18.9055 9.11583 18.7633C8.9246 18.6212 8.79955 18.4181 8.76595 18.195L8.75686 18.0741V9.77778C8.75686 9.54203 8.85938 9.31594 9.04185 9.14924C9.22432 8.98254 9.4718 8.88889 9.72985 8.88889ZM12.0001 1.77778C11.4304 1.7778 10.8815 1.97354 10.4623 2.32614C10.0432 2.67874 9.78452 3.16243 9.73763 3.68119L9.72985 3.85185H14.2704C14.2704 3.30177 14.0313 2.77422 13.6055 2.38526C13.1797 1.9963 12.6023 1.77778 12.0001 1.77778Z" fill="#B70000"/>
-          </svg>
-          `;
-          let parentItem = e.currentTarget;
-          let grandParentItem = e.currentTarget.parentNode;
-          //   console.log(parentItem);
-          setTimeout(() => {
-            parentItem.remove();
-          }, 300);
+        let inputDom = document.createElement('input');
+        inputDom.setAttribute('type', 'text');
+        inputDom.setAttribute(
+          'value',
+          parentItem.previousElementSibling.innerHTML
+        );
+        inputDom.classList.add('todo--edit-input');
+        parentItem.previousElementSibling.innerHTML = '';
+        parentItem.previousElementSibling.classList.add('edited-todo');
+        parentItem.previousElementSibling.append(inputDom);
+        let val = '';
+        document
+          .querySelector(`#done-icon-${todoId}`)
+          .addEventListener('click', function () {
+            val = inputDom.value;
+            parentItem.previousElementSibling.innerHTML = val;
+            parentItem.previousElementSibling.classList.remove('edited-todo');
+            parentItem.innerHTML = `<img src='../assets/edit.png' alt='edit-icon' />`;
+          });
+      }
+      // REMOVE -----------------------------------
+      else if (e.target.closest('.todo--remove')) {
+        let parentItem = e.currentTarget;
 
-          console.log('test', grandParentItem.childNodes);
-          if (grandParentItem.childNodes.length == 2) {
-            grandParentItem.remove();
-          }
-        } else if (e.target.closest('.todo--remove')) {
-          // if the user select remove-icon
-          e.target.parentNode.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.0001 8.26688e-09C13.0771 -6.44109e-05 14.1132 0.37636 14.8961 1.05206C15.6789 1.72775 16.149 2.65149 16.2099 3.63378L16.2164 3.85185H23.0273C23.2738 3.85192 23.5111 3.93747 23.6913 4.09123C23.8714 4.24498 23.9809 4.45546 23.9977 4.68015C24.0145 4.90484 23.9374 5.12698 23.7818 5.30169C23.6262 5.47639 23.4039 5.59064 23.1596 5.62133L23.0273 5.62963H21.9947L20.3341 21.0607C20.2509 21.8301 19.8711 22.5473 19.2625 23.0844C18.6539 23.6215 17.8561 23.9435 17.0117 23.9929L16.7833 24H7.21695C6.37041 24 5.55145 23.7249 4.90645 23.2241C4.26144 22.7232 3.83242 22.0291 3.69605 21.2658L3.66621 21.0596L2.00435 5.62963H0.972985C0.737863 5.62962 0.510698 5.55183 0.333499 5.41065C0.156301 5.26946 0.0410577 5.07443 0.00908115 4.86163L0 4.74074C9.91523e-06 4.52594 0.0851591 4.31841 0.239701 4.15653C0.394242 3.99464 0.607722 3.88936 0.840659 3.86015L0.972985 3.85185H7.78388C7.78388 2.83028 8.22809 1.85054 9.0188 1.12818C9.8095 0.405819 10.8819 8.26689e-09 12.0001 8.26688e-09ZM20.0396 5.62963H3.9594L5.6031 20.8853C5.63949 21.2257 5.80369 21.5441 6.06782 21.7865C6.33196 22.0289 6.67976 22.1803 7.0522 22.2151L7.21695 22.2222H16.7833C17.5617 22.2222 18.2221 21.7185 18.3726 21.0347L18.3985 20.8853L20.0383 5.62963H20.0396ZM14.2704 8.88889C14.5056 8.8889 14.7327 8.96669 14.9099 9.10787C15.0871 9.24906 15.2024 9.44408 15.2344 9.65689L15.2434 9.77778V18.0741C15.2434 18.2993 15.1497 18.5161 14.9814 18.6806C14.8131 18.8452 14.5827 18.9453 14.3368 18.9606C14.0908 18.976 13.8477 18.9055 13.6564 18.7633C13.4652 18.6212 13.3401 18.4181 13.3065 18.195L13.2975 18.0741V9.77778C13.2975 9.54203 13.4 9.31594 13.5824 9.14924C13.7649 8.98254 14.0124 8.88889 14.2704 8.88889ZM9.72985 8.88889C9.96497 8.8889 10.1921 8.96669 10.3693 9.10787C10.5465 9.24906 10.6618 9.44408 10.6938 9.65689L10.7028 9.77778V18.0741C10.7028 18.2993 10.6091 18.5161 10.4408 18.6806C10.2725 18.8452 10.0421 18.9453 9.79617 18.9606C9.55022 18.976 9.30707 18.9055 9.11583 18.7633C8.9246 18.6212 8.79955 18.4181 8.76595 18.195L8.75686 18.0741V9.77778C8.75686 9.54203 8.85938 9.31594 9.04185 9.14924C9.22432 8.98254 9.4718 8.88889 9.72985 8.88889ZM12.0001 1.77778C11.4304 1.7778 10.8815 1.97354 10.4623 2.32614C10.0432 2.67874 9.78452 3.16243 9.73763 3.68119L9.72985 3.85185H14.2704C14.2704 3.30177 14.0313 2.77422 13.6055 2.38526C13.1797 1.9963 12.6023 1.77778 12.0001 1.77778Z" fill="#B70000"/>
-          </svg>
-            `;
-          let parentItem = e.currentTarget;
+        let grandParentItem = e.currentTarget.parentNode;
+        e.target.parentNode.innerHTML = `<img src='../assets/active-remove.png' alt='active-remove-icon' />`;
+        setTimeout(() => {
+          parentItem.remove();
+        }, 300);
+
+        if (grandParentItem.childNodes.length == 2) {
           setTimeout(() => {
-            parentItem.remove();
+            grandParentItem.remove();
           }, 300);
         }
-      },
-      true
-    );
+      }
+    });
   });
 };
 
