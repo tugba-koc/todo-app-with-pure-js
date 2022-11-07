@@ -69,12 +69,21 @@ a {
   display: grid;
   grid-template-columns: 50vw auto;
   margin-top: 42px;
+  @media screen and (max-width: $toDesktopScreen) {
+    display: grid;
+    grid-template-columns: auto;
+  }
 }
 
 .add-todo__btn {
   width: 256px;
   height: 44px;
   margin-left: auto;
+  @media screen and (max-width: $toDesktopScreen) {
+    grid-row: 1;
+    margin-left: 0;
+    margin-bottom: 34px;
+  }
 }
 
 .add-todo__title {
@@ -105,16 +114,23 @@ a {
   padding: 20px;
   border: none;
   width: 52.25vw;
+  max-width: 780px;
+  @media screen and (max-width: $toMobileScreen) {
+    width: 75vw;
+  }
 }
 
 .add-todo__model--text {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 60px auto;
   align-items: center;
 }
 
 .add-todo__model--date {
   margin-top: 32px;
+  display: grid;
+  grid-template-columns: 60px auto;
+  align-items: center;
 }
 
 .add-todo__model-input.date {
@@ -130,7 +146,6 @@ a {
 }
 
 .add-todo__model-input {
-  width: 100%;
   height: 44px;
   background: $light-grey-color;
   border: 1px solid $secondary-color;
@@ -161,6 +176,9 @@ a {
   width: 308.5px;
   height: 44px;
   padding: 6px 58px;
+  @media screen and (max-width: $toDesktopScreen) {
+    width: 16vw;
+  }
 }
 
 .add-todo__model-save {
@@ -171,6 +189,9 @@ a {
   width: 308.5px;
   height: 44px;
   padding: 6px 58px;
+  @media screen and (max-width: $toDesktopScreen) {
+    width: 16vw;
+  }
 }
 
 // TO DO LIST BLOCK
@@ -208,6 +229,9 @@ a {
   width: 100%;
   padding-left: 10px;
   justify-content: start;
+  @media screen and (max-width: $toDesktopScreen) {
+    width: 70%;
+  }
 }
 
 svg {

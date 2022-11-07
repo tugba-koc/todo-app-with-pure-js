@@ -128,10 +128,28 @@ a {
   margin-top: 42px;
 }
 
+@media screen and (max-width: 1250px) {
+  .add-todo__Inner {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
+}
+
 .add-todo__btn {
   width: 256px;
   height: 44px;
   margin-left: auto;
+}
+
+@media screen and (max-width: 1250px) {
+  .add-todo__btn {
+    -ms-grid-row: 1;
+    grid-row: 1;
+    margin-left: 0;
+    margin-bottom: 34px;
+  }
 }
 
 .add-todo__title {
@@ -161,16 +179,20 @@ a {
   padding: 20px;
   border: none;
   width: 52.25vw;
+  max-width: 780px;
+}
+
+@media screen and (max-width: 750px) {
+  .add-todo__modal-content {
+    width: 75vw;
+  }
 }
 
 .add-todo__model--text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60px auto;
+      grid-template-columns: 60px auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -178,6 +200,13 @@ a {
 
 .add-todo__model--date {
   margin-top: 32px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60px auto;
+      grid-template-columns: 60px auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .add-todo__model-input.date {
@@ -211,7 +240,6 @@ a {
 }
 
 .add-todo__model-input {
-  width: 100%;
   height: 44px;
   background: #d0cad9;
   border: 1px solid #272727;
@@ -251,6 +279,12 @@ a {
   padding: 6px 58px;
 }
 
+@media screen and (max-width: 1250px) {
+  .add-todo__model-cancel {
+    width: 16vw;
+  }
+}
+
 .add-todo__model-save {
   background: #800080;
   -webkit-box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.1);
@@ -259,6 +293,12 @@ a {
   width: 308.5px;
   height: 44px;
   padding: 6px 58px;
+}
+
+@media screen and (max-width: 1250px) {
+  .add-todo__model-save {
+    width: 16vw;
+  }
 }
 
 .todo-list--block:not(:first-child) {
@@ -312,6 +352,12 @@ a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+}
+
+@media screen and (max-width: 1250px) {
+  .todo-item__single.todo--title {
+    width: 70%;
+  }
 }
 
 svg {
