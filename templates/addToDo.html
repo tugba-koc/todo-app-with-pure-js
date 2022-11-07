@@ -17,11 +17,11 @@
       <form class='add-todo__model-form'>
         <div class='add-todo__model--text'>
           <label class="add-todo__model-label" for="">Title</label>
-          <input class="add-todo__model-input" type="text" value="" />
+          <input pattern="[a-zA-Z]+" class="add-todo__model-input" type="text" value="" />
         </div>
         <div class='add-todo__model--date'>
           <label class="add-todo__model-label" for="">Date</label>
-          <input class="add-todo__model-input date" placeholder="dd/mm/yyyy" type="text" value="" />
+          <input pattern="^(?!\/)[\d\/]*$(?<!\/)" class="add-todo__model-input date" placeholder="dd/mm/yyyy" type="text" value="" />
         </div>
         <div class='add-todo__model--button-group'>
         <button class='add-todo__model-cancel'>Cancel</button>
