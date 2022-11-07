@@ -1,3 +1,5 @@
+import { saveData } from './dataController.js';
+
 const edittodo = () => {
   let todoItems = document.getElementsByClassName('todo__single');
   Array.from(todoItems).forEach((todo) => {
@@ -39,16 +41,19 @@ const edittodo = () => {
 
         let grandParentItem = e.currentTarget.parentNode;
         e.target.parentNode.innerHTML = `<img src='../assets/active-remove.png' alt='active-remove-icon' />`;
-        setTimeout(() => {
+        // setTimeout(() => {
           parentItem.remove();
-        }, 300);
+        // }, 300);
 
         if (grandParentItem.childNodes.length == 2) {
-          setTimeout(() => {
+          // setTimeout(() => {
             grandParentItem.remove();
-          }, 300);
+          // }, 300);
         }
       }
+      let docText = document.querySelector('.add-todo__task-list').innerHTML;
+      console.log(docText,'edit');
+      saveData();
     });
   });
 };

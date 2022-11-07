@@ -1,3 +1,5 @@
+
+import { getData, saveData } from './dataController.js';
 import edittodo from './editTodoController.js';
 
 const addtodo = () => {
@@ -10,12 +12,7 @@ const addtodo = () => {
   let todoList = document.querySelector('.add-todo__task-list');
 
   // get all data
-  let userName = localStorage.getItem('user');
-  let res = JSON.parse(localStorage.getItem('user-data'));
-  if (res) {
-    if (res.username === userName && res.data.length) todoList.innerHTML = res.data;
-  }
-
+  getData();
   edittodo();
 
   // When the user clicks the button, open the modal
@@ -106,7 +103,7 @@ const addtodo = () => {
       removeInputValues();
       edittodo();
     }
-    
+    saveData();
   });
 };
 
